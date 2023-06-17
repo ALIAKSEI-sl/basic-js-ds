@@ -28,7 +28,7 @@ class Queue {
     if (this.head === null) {
       this.head = node;
       this.tail = node;
-    } else{
+    } else {
       this.tail.next = node;
       this.tail = this.tail.next;
     }
@@ -42,16 +42,5 @@ class Queue {
 }
 
 module.exports = {
-  Queue
+  Queue,
 };
-
-const q = new Queue;
-q.enqueue(0)
-q.enqueue(1)
-q.enqueue(2)
-// q.dequeue()
-// q.dequeue()
-// q.enqueue(3)
-// q.enqueue(4)
-// q.enqueue(5)
-console.log(q.getUnderlyingList())
