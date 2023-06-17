@@ -36,10 +36,9 @@ function removeKFromList(l, k) {
     return list;
   }
 
-  l = removeK(l, k);
-  return l;
+  return removeK(l, k);
 }
 
 module.exports = {
-  removeKFromList
+  removeKFromList,
 };
