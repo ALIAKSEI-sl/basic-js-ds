@@ -28,8 +28,7 @@ function removeKFromList(l, k) {
 
     if (list.value === k) {
       list = list.next;
-      list = removeK(list, k);
-      return list;
+      return removeK(list, k);
     }
 
     list.next = removeK(list.next, k);

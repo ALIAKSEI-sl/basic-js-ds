@@ -15,48 +15,48 @@ class BinarySearchTree {
     return this.binaryTree;
   }
 
-  add(data) {
-    function addData(binaryTree, data) {
-      if (binaryTree === null) return new Node(data);
-      else if (binaryTree.data === data) return binaryTree;
-      else if (binaryTree.data < data) binaryTree.right = addData(binaryTree.right, data);
-      else if (binaryTree.data > data) binaryTree.left = addData(binaryTree.left, data);
+  add(element) {
+    function addData(binaryTree, element) {
+      if (binaryTree === null) return new Node(element);
+      else if (binaryTree.data < element) binaryTree.right = addData(binaryTree.right, element);
+      else if (binaryTree.data > element) binaryTree.left = addData(binaryTree.left, element);
+      else return binaryTree;
       return binaryTree;
     }
 
-    this.binaryTree = addData(this.binaryTree, data);
+    this.binaryTree = addData(this.binaryTree, element);
   }
 
-  has(data) {
-    function hasData(binaryTree, data) {
-      if (binaryTree === null) return false;
-      else if (binaryTree.data === data) return true;
-      else if (binaryTree.data < data) return hasData(binaryTree.right, data);
-      else if (binaryTree.data > data) return hasData(binaryTree.left, data);
+  has(element) {
+    function hasData(binaryTree, element) {
+      if (binaryTree === null) return false; 
+      else if (binaryTree.data < element) return hasData(binaryTree.right, element);
+      else if (binaryTree.data > element) return hasData(binaryTree.left, element);
+      else return true;
     }
 
-    return hasData(this.binaryTree, data);
+    return hasData(this.binaryTree, element);
   }
 
-  find(data) {
-    function findData(binaryTree, data) {
+  find(element) {
+    function findData(binaryTree, element) {
       if (binaryTree === null) return null;
-      else if (binaryTree.data === data) return binaryTree;
-      else if (binaryTree.data < data) return findData(binaryTree.right, data);
-      else if (binaryTree.data > data) return findData(binaryTree.left, data);
+      else if (binaryTree.data < element) return findData(binaryTree.right, element);
+      else if (binaryTree.data > element) return findData(binaryTree.left, element);
+      else return binaryTree;
     }
 
-    return findData(this.binaryTree, data);
+    return findData(this.binaryTree, element);
   }
 
-  remove(data) {
-    function removeData(binaryTree, data) {
+  remove(element) {
+    function removeData(binaryTree, element) {
       if (binaryTree === null) return null;
-      if (binaryTree.data < data) {
-        binaryTree.right = removeData(binaryTree.right, data);
+      if (binaryTree.data < element) {
+        binaryTree.right = removeData(binaryTree.right, element);
         return binaryTree;
-      } else if (binaryTree.data > data) {
-        binaryTree.left = removeData(binaryTree.left, data);
+      } else if (binaryTree.data > element) {
+        binaryTree.left = removeData(binaryTree.left, element);
         return binaryTree;
       } else {
         if (binaryTree.left === null && binaryTree.right === null) return null;
@@ -81,7 +81,7 @@ class BinarySearchTree {
       }
     }
 
-    this.binaryTree = removeData(this.binaryTree, data);
+    this.binaryTree = removeData(this.binaryTree, element);
   }
 
   min() {
